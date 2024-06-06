@@ -103,7 +103,7 @@ class CubeScript {
 		}
 
 		interp = new Interp();
-		this.unsafe = initFlags.unsafe ?? false;
+		this.unsafe = initFlags.unsafe != null;
 
 		parser = new Parser();
 		parser.allowJSON = parser.allowMetadata = parser.allowTypes = true;
@@ -113,7 +113,7 @@ class CubeScript {
 			Sys.println('${fileName}:${posInfo.lineNumber}: ${Std.string(data)}');
 		});
 
-		final doPreset:Bool = initFlags.preset ?? true;
+		final doPreset:Bool = initFlags.preset != null;
 		if(doPreset) preset();
 	}
 
